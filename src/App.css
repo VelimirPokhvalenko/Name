@@ -10,6 +10,11 @@
     /* grid-gap: 10px; */
 }
 
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
 html {
     background: url(assets/background.jpeg) no-repeat center center fixed;
     -webkit-background-size: cover;

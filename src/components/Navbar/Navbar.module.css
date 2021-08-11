@@ -2,11 +2,6 @@
     grid-area: n;
 }
 
-a, a:hover, a:focus, a:active {
-    text-decoration: none;
-    color: inherit;
-}
-
 .item {
     color: white;
     padding-top: 10% ;
