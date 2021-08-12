@@ -15,7 +15,7 @@ const App = (props) => {
     return (
             <div className='app-wrapper'>
                 <Header/>
-                <Navbar users={props.state.usersInfo.dialogsItem}/>
+                <Navbar users={props.state.userInfo.dialogsItem}/>
                 <div className='app-wrapper-content' onClick={ () => {
                     const friendsList = document.getElementById(s.friendsList);
                     friendsList.classList.remove(s.open)}}>
@@ -25,7 +25,7 @@ const App = (props) => {
                     />}/>
                     <Route path={'/Dialogs'} render={() => <Dialogs
                         dialogsPage={props.state.dialogsPage}
-                        usersInfo={props.state.UsersInfo.dialogsItem}
+                        usersInfo={props.state.userInfo.dialogsItem}
                         dispatch={props.dispatch.bind(props.store)}
 
                     />} />

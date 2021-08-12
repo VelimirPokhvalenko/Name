@@ -6,7 +6,7 @@ const {profileReducer} = require("./profile-reducer");
 let reducers = combineReducers({
     profilePage: profileReducer,
     dialogsPage: dialogsReducer,
-    usersInfo: usersInfoReducer,
+    userInfo: usersInfoReducer
 })
 
 export let store = createStore(reducers);
