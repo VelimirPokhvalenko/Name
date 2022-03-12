@@ -6,7 +6,7 @@
   "c c";
 
     grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 3fr 9fr;
     /* grid-gap: 10px; */
 }
 
@@ -16,11 +16,14 @@ a, a:hover, a:focus, a:active {
 }
 
 html {
-    background: url(assets/background.jpeg) no-repeat center center fixed;
+    background: linear-gradient( rgba(1, 1, 1, 0.2), rgba(0, 0, 0, 0.5) ), url(assets/WitcherWallpapers.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
 }
 
 .app-wrapper-content {

@@ -1,1 +1,25 @@
+.allocation {
+    display: grid;
+    grid-template-areas:
+    "img icons"
+    "posts posts";
 
+    grid-template-rows: 200px 1fr;
+    grid-template-columns: 2fr 10fr;
+    gap: 20px;
+}
+.posts {
+    grid-area: posts;
+}
+.image {
+    grid-area: img;
+}
+.icons {
+    grid-area: icons;
+}
+.job {
+    font-size: 25px;
+}
+.floatForImages {
+    object-position:left bottom;
+}

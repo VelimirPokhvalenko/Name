@@ -1,8 +1,31 @@
 .header {
     grid-area: h;
 }
-
+.info {
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    margin: 0px;
+    max-width: 100px;
+}
 .header img {
-    width: 78px;
 }
 
+.button {
+    background-color: white;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    text-align: center;
+    margin: auto;
+}
+
+.text {
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(darkviolet, orangered);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

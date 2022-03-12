@@ -68,7 +68,3 @@ let store = {
         this._callSubscriber(store)
     }
 }
-
-window.store = store;
-
-

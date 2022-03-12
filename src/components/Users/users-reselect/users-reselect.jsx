@@ -1,0 +1,9 @@
+export const getUsers = (state) => state.usersPage.users;
+export const getTotalUsersCount = (state) => state.usersPage.totalUsersCount;
+export const getCurrentPage = (state) => state.usersPage.currentPage;
+export const getPageSize = (state) => state.usersPage.pageSize;
+export const getUsersCount = (state) => state.usersPage.usersCount;
+export const getIsFetching = (state) => state.usersPage.isFetching;
+export const getStartPage = (state) => state.usersPage.startPage;
+export const getFollowingIsInProgress = (state) => state.usersPage.followingIsInProgress;
+export const fake = (state) => state.usersPage.fakevalue;

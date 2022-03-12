@@ -2,46 +2,41 @@ import d from "./Dialogs.module.css";
 import {DialogsItem} from "./DialogsItem/DialogsItem";
 import {Message} from "./Message/Message";
 import React from "react";
-import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/dialogs-reducer";
+import ReduxDialogSendMessageForm from './DialogsForm/DialogSendMessageForm';
 
 export const Dialogs = (props) => {
-
-    let updateNewMessageText= (e) => {
-        let newMessageText = e.target.value;
-        let action = updateNewMessageTextActionCreator(newMessageText);
-        props.dispatch(action)
-    }
-
-    let addMessage = () => {
-        let action = addMessageActionCreator()
-        props.dispatch(action)
-    }
 
     let insider = props.dialogsPage.insider;
     let userPhoto = null;
     let friendsName = null;
     let friendsId = null;
 
-    let dialogsElements = props.usersInfo.map(dialogs => <DialogsItem name={dialogs.name} id={dialogs.id}/>);
+    let dialogsElements = props.userInfo.dialogsItem.map(dialogs =>
+        <DialogsItem key={'forty_one'} name={dialogs.name} id={dialogs.id}/>);
 
     let messageElements = props.dialogsPage.messages.map(message => {
         if (message.friendsName === insider) {
             userPhoto = props.dialogsPage.VelimirAva
-            return (<span className={`${d.message} ${d.myself}`}>
+            return (<span key={'forty_two'} className={`${d.message} ${d.myself}`}>
                     <Message message={message.message} avatar={userPhoto} id={message.id}/>
                 </span>
             )
         } else {
             friendsName = message.friendsName;
             friendsId = message.userId;
-            userPhoto = props.usersInfo[friendsId].userImage;
+            userPhoto = props.userInfo.dialogsItem[friendsId].userImage;
             return (<span className={d.message}>
                 <Message message={message.message} avatar={userPhoto} id={message.id}/>
             </span>)
         }
     });
 
-    userPhoto = props.usersInfo[friendsId].userImage;
+    userPhoto = props.userInfo.dialogsItem[friendsId].userImage;
+
+    let onSubmit = (FormData) => {
+        debugger
+        props.addMessage(FormData.newMessageBody);
+    }
 
     return (
         <div>
@@ -65,9 +60,8 @@ export const Dialogs = (props) => {
                     <div className={d.messages}>
                         {messageElements}
                     </div>
-                    <textarea onChange={updateNewMessageText} value={props.dialogsPage.newMessageText} className={d.textArea}></textarea>
-                    <input  className={d.btn} onClick={addMessage} type={'image'} src={props.dialogsPage.btnImage}></input>
-                </div>
+                    <ReduxDialogSendMessageForm image={props.dialogsPage.btnImage} onSubmit={onSubmit}/>
+                    </div>
             </div>
         </div>
     )

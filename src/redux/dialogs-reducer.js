@@ -1,8 +1,9 @@
 import Elon from "../assets/Elon.jpg";
 import btn from "../assets/btn.svg";
+import logo from '../assets/logo.jpeg';
 
 const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+// const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let initialState = {
     messages: [
@@ -24,30 +25,31 @@ let initialState = {
     insider: 'Velimir',
     VelimirAva: Elon,
     btnImage: btn,
-    newMessageText: 'Witcher, samurai, jedi'
+    logo: logo
 }
+
 
 export let dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE :
+        case ADD_MESSAGE : {
+
             let newMessage = {
-                message: state.newMessageText,
+                message: action.newPostText,
                 id: state.messages.length,
                 friendsName: state.insider,
                 userId: 4
             }
 
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
-        case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.updatedMessageText;
-            return state;
-
+            return {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageText: ''
+            };
+        }
         default:
             return state;
     }
 }
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, updatedMessageText: text});
+export const addMessageActionCreator = (newPostText) => ({type: ADD_MESSAGE, newPostText});
+// export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, updatedMessageText: text});

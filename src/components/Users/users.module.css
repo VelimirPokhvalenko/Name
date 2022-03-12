@@ -1,0 +1,68 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+.block {
+    display: flex;
+    background-color: slateblue;
+    min-width: 400px;
+    border-radius: 40px;
+}
+.users {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
+    gap: 10px
+}
+.userBlock {
+    background-color: cornflowerblue;
+    border-radius: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 300px;
+}
+.userBlock2 {
+    border-radius: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+    width: 300px;
+    background-image: url("samurai.png");
+}
+.ava {
+    height: 100px;
+    border-radius: 50%;
+    width: 100px;
+    float: left
+}
+.btn {
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    font-weight: bold;
+    border-color: darkviolet;
+    border-radius: 25px;
+    background-color: white;
+}
+.btnText {
+    background: -webkit-linear-gradient(darkviolet, orangered);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.chosen {
+    color: gold;
+    display: inline;
+    margin-left: 5px;
+    font-size: 40px;
+}
+.notChosen {
+    color: limegreen;
+    display: inline;
+    margin-left: 5px;
+    font-size: 40px;
+}
+.fetcher {
+    display: flex;
+    justify-content: center;
+}
+.backArrow {
+    transform: rotate(180deg);
+}
