@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/Name/static/css/main.e109037e.chunk.css",
+    "main.js": "/Name/static/js/main.685be44c.chunk.js",
+    "main.js.map": "/Name/static/js/main.685be44c.chunk.js.map",
+    "runtime-main.js": "/Name/static/js/runtime-main.a24fad48.js",
+    "runtime-main.js.map": "/Name/static/js/runtime-main.a24fad48.js.map",
+    "static/js/2.d4b9c019.chunk.js": "/Name/static/js/2.d4b9c019.chunk.js",
+    "static/js/2.d4b9c019.chunk.js.map": "/Name/static/js/2.d4b9c019.chunk.js.map",
+    "static/css/3.e2151906.chunk.css": "/Name/static/css/3.e2151906.chunk.css",
+    "static/js/3.f7b8b41b.chunk.js": "/Name/static/js/3.f7b8b41b.chunk.js",
+    "static/js/3.f7b8b41b.chunk.js.map": "/Name/static/js/3.f7b8b41b.chunk.js.map",
+    "static/css/4.ffdb875a.chunk.css": "/Name/static/css/4.ffdb875a.chunk.css",
+    "static/js/4.9d79e048.chunk.js": "/Name/static/js/4.9d79e048.chunk.js",
+    "static/js/4.9d79e048.chunk.js.map": "/Name/static/js/4.9d79e048.chunk.js.map",
+    "index.html": "/Name/index.html",
+    "static/css/3.e2151906.chunk.css.map": "/Name/static/css/3.e2151906.chunk.css.map",
+    "static/css/4.ffdb875a.chunk.css.map": "/Name/static/css/4.ffdb875a.chunk.css.map",
+    "static/css/main.e109037e.chunk.css.map": "/Name/static/css/main.e109037e.chunk.css.map",
+    "static/js/2.d4b9c019.chunk.js.LICENSE.txt": "/Name/static/js/2.d4b9c019.chunk.js.LICENSE.txt",
+    "static/media/Dialogs.module.css": "/Name/static/media/Elon.da2ec217.jpg",
+    "static/media/Oksana.5afb5472.jpg": "/Name/static/media/Oksana.5afb5472.jpg",
+    "static/media/Oleksandr.20799d4f.jpg": "/Name/static/media/Oleksandr.20799d4f.jpg",
+    "static/media/Rock.0ab8fef7.jpg": "/Name/static/media/Rock.0ab8fef7.jpg",
+    "static/media/Spinner-1s-800px.65777551.svg": "/Name/static/media/Spinner-1s-800px.65777551.svg",
+    "static/media/App.css": "/Name/static/media/WitcherWallpapers.e223fb49.jpg",
+    "static/media/Zlata.052a3358.jpg": "/Name/static/media/Zlata.052a3358.jpg",
+    "static/media/btn.1d8a4663.svg": "/Name/static/media/btn.1d8a4663.svg",
+    "static/media/defaultUserImage.44e9c616.jpg": "/Name/static/media/defaultUserImage.44e9c616.jpg",
+    "static/media/next-button.05336209.png": "/Name/static/media/next-button.05336209.png",
+    "static/media/users.module.css": "/Name/static/media/samurai.06ee95ff.png",
+    "static/media/witcher.ecd9f284.jpg": "/Name/static/media/witcher.ecd9f284.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a24fad48.js",
+    "static/js/2.d4b9c019.chunk.js",
+    "static/css/main.e109037e.chunk.css",
+    "static/js/main.685be44c.chunk.js"
+  ]
+}
