@@ -1,10 +1,17 @@
 import React, {useEffect} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfile, getStatusThunkCreator, updateStatus} from "../../redux/profile-reducer";
+import {
+    editProfileData,
+    getProfile,
+    getStatusThunkCreator,
+    manageEditMode,
+    ProfileImageLoader,
+    updateStatus
+} from "../../redux/profile-reducer";
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
-import {Preloader} from "../../common/Preloader/Preloader";
+import LoginContainer from "../Login/LoginContainer";
 
 const ProfileContainer = (props) => {
 
@@ -18,7 +25,7 @@ const ProfileContainer = (props) => {
     }, [props.match.params.userId, props.authorizedUserId]);
 
     if (!props.match.params.userId && !props.isAuthorized) {
-        return <Preloader/>
+        return <LoginContainer />
     }
     return (
         <Profile {...props}/>
@@ -30,13 +37,15 @@ let mapStateToProps = (state) => {
         profilePage: state.profilePage,
         authorizedUserId: state.auth.id,
         status: state.profilePage.status,
-        isAuthorized: state.auth.isAuthorized
+        isAuthorized: state.auth.isAuthorized,
+        editMode: state.profilePage.editMode
     };
 }
 
 // useSelector should be here, but not connect(
 
 export default compose(
-    connect(mapStateToProps, {getProfile, getStatusThunkCreator, updateStatus}),
+    connect(mapStateToProps, {getProfile, getStatusThunkCreator, updateStatus,
+        ProfileImageLoader, manageEditMode, editProfileData}),
     withRouter
 )(ProfileContainer)

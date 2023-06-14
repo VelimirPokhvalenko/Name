@@ -26,6 +26,7 @@ const ProfileStatusWithSuperHooks = (props) => {
 
     return (
         <div>
+            <b>Status: </b>
             {editMode ?
                 <textarea autoFocus={true} onChange={e => setNewStatus(e)}
                           onBlur={ (e) => {deactivateEditMode(e)}} value={status}/>

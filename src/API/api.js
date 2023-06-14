@@ -30,16 +30,33 @@ export const profileAPI = {
     },
     getStatus: (userId) => {
         return instance.get(`profile/status/${userId}`);
+    },
+    setProfilePhoto: (userPhoto) => {
+        let formData = new FormData();
+        formData.append("image", userPhoto);
+        return instance.put(`profile/photo`, formData,
+            {headers: {
+                    'Content-type': 'multipart/form-data'
+                }});
+    },
+    editProfileData: (profileData) => {
+        return instance.put(`profile`, profileData)
     }
 }
 export const authAPI = {
     me: () => {
         return instance.get('auth/me');
     },
-    login: (email, password, rememberMe = false) => {
-        return instance.post('/auth/login/', {email: email, password: password, rememberMe: rememberMe});
+    login: (email, password, rememberMe = false, captchaSymbols) => {
+        return instance.post('/auth/login/', {email: email, password: password, rememberMe: rememberMe, captcha: captchaSymbols});
     },
     logout: () => {
         return instance.delete(`/auth/login/`);
+    }
+}
+
+export const securityAPI = {
+    getCaptchaURL: () => {
+        return instance.get('security/get-captcha-url');
     }
 }

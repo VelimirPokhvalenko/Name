@@ -1,4 +1,6 @@
-import {profileAPI} from "../API/api";
+import {authAPI, profileAPI} from "../API/api";
+import {stopSubmit} from "redux-form";
+import {authorize} from "./authReducer";
 
 const ADD_POST = 'ADD-POST';
 // const UPDATE_NEW_POST_MESSAGE = 'UPDATE-NEW-POST-MESSAGE';
@@ -6,6 +8,8 @@ const SET_USER_DATA = 'SET-USER-DATA';
 const GET_STATUS_DATA = 'GET-STATUS-DATA';
 const SET_STATUS = 'SET-STATUS';
 const DELETE_POST = 'DELETE-POST';
+const SET_USER_PHOTO = 'SET-USER-PHOTO';
+const SET_EDIT_MODE = 'SET-EDIT-MODE';
 
 let initialState = {
     postInfo: [
@@ -18,6 +22,7 @@ let initialState = {
     newPostText: 'Witcher, samurai, jedi',
     profile: null,
     status: null,
+    editMode: false
 }
 
 export let profileReducer = (state = initialState, action) => {
@@ -50,7 +55,18 @@ export let profileReducer = (state = initialState, action) => {
         case DELETE_POST:
             return {
                 ...state,
-                postInfo: state.postInfo.filter((e) => e.id != action.id)
+                postInfo: state.postInfo.filter((e) => e.id !== action.id)
+            }
+        case SET_USER_PHOTO:
+            let newProfile = state.profile
+            newProfile.photos = action.photos
+            return {
+                ...state, profile: newProfile
+            }
+        case SET_EDIT_MODE:
+            return {
+                ...state,
+                editMode: action.editMode
             }
         default:
             return state;
@@ -62,6 +78,8 @@ export const setUserData = (profile) => ({type: SET_USER_DATA, profile});
 export const getStatusData = (status) => ({type: GET_STATUS_DATA, status});
 export const setStatusData = (status) => ({type: SET_STATUS, status});
 export const deletePost = (id) => ({type: DELETE_POST, id});
+export const setUserPhoto = (photos) => ({type: SET_USER_PHOTO, photos});
+export const manageEditMode = (editMode) => ({type: SET_EDIT_MODE, editMode});
 
 export const getProfile = (id) => {
     return (dispatch) => {
@@ -75,8 +93,32 @@ export const getStatusThunkCreator = (userId) => async (dispatch) => {
     dispatch(getStatusData(response.data));
 }
 export const updateStatus = (status) => async (dispatch) => {
-    const response = await profileAPI.SetUserStatus(status)
+    debugger
+    try {
+        const response = await profileAPI.SetUserStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setStatusData(status));
+        }
+    } catch(error) {
+        console.log(error.message)
+    }
+}
+
+export const ProfileImageLoader = (photos) => async (dispatch) => {
+    const response = await profileAPI.setProfilePhoto(photos);
     if (response.data.resultCode === 0) {
-        dispatch(setStatusData(status));
+        dispatch(setUserPhoto(response.data.data.photos));
+    }
+}
+
+export const editProfileData = (data) => async (dispatch, getState) => {
+    debugger
+    let response = await profileAPI.editProfileData(data);
+    if (response.data.resultCode === 0) {
+        response = await profileAPI.setProfile(getState().auth.id);
+        dispatch(setUserData(response.data));
+        dispatch(manageEditMode(false));
+    } else {
+            dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0]}));
     }
 }

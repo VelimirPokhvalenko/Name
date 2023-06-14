@@ -10,7 +10,7 @@ export const User = (usersList, followingIsInProgress, unfollowUser, followUser)
                             <span className={u.followed === true ? style.userBlock2
                                 : style.userBlock}>
                 <NavLink to={`/Profile/${u.id}`}>
-                    <img src={u.photos.small !== null ? u.photos.small : userImage} className={style.ava}/>
+                    <img src={u.photos.large || userImage} className={style.ava}/>
                 </NavLink>
                 <span>{u.name}</span>
                 <div>{u.hobbies}</div>

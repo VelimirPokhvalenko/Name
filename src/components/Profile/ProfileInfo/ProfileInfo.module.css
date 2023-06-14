@@ -1,25 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 .allocation {
     display: grid;
     grid-template-areas:
-    "img icons"
+    "img data"
     "posts posts";
 
     grid-template-rows: 200px 1fr;
     grid-template-columns: 2fr 10fr;
     gap: 20px;
 }
+
 .posts {
     grid-area: posts;
 }
-.image {
-    grid-area: img;
+
+.profileImage {
+    cursor: pointer;
+    position: relative;
 }
+
+.profileImage:hover button {
+    opacity: 1;
+}
+
+.data {
+    grid-area: data;
+}
+
 .icons {
     grid-area: icons;
 }
-.job {
+
+.personal {
     font-size: 25px;
 }
+
 .floatForImages {
-    object-position:left bottom;
+    display: grid;
+    grid-template-columns: 12% 12% 12% 12% 12% 12% 12% 12%;
+}
+
+.AdditionalDescription {
+    grid-area: additionalInfo;
+    font-size: 25px;
+}
+
+.dataAllocation {
+    display: grid;
+    grid-template-areas:
+        "icons additionalInfo";
+
+    grid-template-rows: 200px 1fr;
+    grid-auto-columns: 6fr 6fr;
+}
+
+.EditModeButton {
+    position: absolute;
+    width: 170px;
+    height: 50px;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.ExitEditModeButton {
+    position: absolute;
+    width: 170px;
+    height: 80px;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    font-size: 25px;
+    font-family: 'Montserrat', sans-serif;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.superButton {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 105%;
+    position: absolute;
+    top: 0px;
+    opacity: 0;
+}
+
+.superButtonEditMode {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 87%;
+    width: 95%;
+    position: absolute;
+    top: 0px;
+    opacity: 1;
+}
+
+.profileImage:hover div {
+    opacity: 1;
+}
+
+.exit {
+    background-color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    border: 1px gold solid;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+
+.text {
+    font-size: 25px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(darkviolet, orangered);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.collapsible {
+    width: 50px;
+}
+
+.content {
+    position: relative;
+}
+
+.error {
+    color: red;
+    font-size: 20px;
+    background-color: white;
+    width: 180px;
+    min-height: 57px;
+    text-align: center;
+    border-radius: 20px;
+    border: 3px red solid;
 }

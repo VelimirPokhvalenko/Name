@@ -1,6 +1,6 @@
 import {Field, reduxForm} from "redux-form";
 import {isGmail, minLength, required} from "../utils/validators";
-import {Input} from "../FormsControls/FormsControls";
+import {createField, Input, Textarea} from "../FormsControls/FormsControls";
 import {Redirect} from "react-router-dom";
 import form from '../FormsControls/FormControls.module.css'
 
@@ -24,6 +24,11 @@ const LoginForm = (props) => {
             {props.error &&
                 <div className={form.form_summary_error}>{props.error}</div>}
             <div>
+                {props.captchaURL &&
+                    <div>
+                        <img src={props.captchaURL}/>
+                        {createField("fill your text here", "captcha", [required], Textarea)}
+                    </div>}
                 <button>Login</button>
             </div>
         </form>
@@ -33,13 +38,13 @@ const LoginReduxForm = reduxForm({form: 'Login'})(LoginForm);
 
 export const Login = (props) => {
     const onSubmit = (formData) => {
-        props.loginUserThunkCreator(formData.login, formData.password, formData.rememberMe);
+        props.loginUserThunkCreator(formData.login, formData.password, formData.rememberMe, formData.captcha);
     }
 
     if (props.isAuth) return <Redirect to={'/profile'}/>
 
     return <div>
         <h1>LOGIN</h1>
-        <LoginReduxForm onSubmit={onSubmit}/>
+        <LoginReduxForm captchaURL={props.captchaURL} onSubmit={onSubmit}/>
     </div>
 }
